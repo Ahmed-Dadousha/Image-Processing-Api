@@ -20,13 +20,6 @@ Got to http://localhost:3000/
 
 http://localhost:3000/api/images
 
-<<<<<<< HEAD
-Write These params in url:
-filename:'your image name without extenstion' => string; <br>
-width: "Your image new width" => number; <br>
-height: "Your image new height" => number; <br>
-=======
-
 - Write These params in url:filename:'your image name without extenstion' => string; <br>
 - width: "Your image new width" => number; <br>
 - height: "Your image new height" => number; <br>
