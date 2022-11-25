@@ -21,6 +21,6 @@ Got to http://localhost:3000/
 http://localhost:3000/api/images
 
 Write These params in url:
-filename:'your image name without extenstion' => string;
-width: "Your image new width" => number;
-height: "Your image new height" => number;
+filename:'your image name without extenstion' => string; <br>
+width: "Your image new width" => number; <br>
+height: "Your image new height" => number; <br>
