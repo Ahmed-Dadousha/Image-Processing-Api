@@ -26,7 +26,8 @@ filename:'your image name without extenstion' => string; <br>
 width: "Your image new width" => number; <br>
 height: "Your image new height" => number; <br>
 =======
-- Write These params in url:filename:'your image name without extenstion' => string;
-- width: "Your image new width" => number;
-- height: "Your image new height" => number;
->>>>>>> 4df9287 (Fixed Some Bugs)
+
+- Write These params in url:filename:'your image name without extenstion' => string; <br>
+- width: "Your image new width" => number; <br>
+- height: "Your image new height" => number; <br>
+  > > > > > > > 4df9287 (Fixed Some Bugs)
