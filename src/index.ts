@@ -9,6 +9,10 @@ const port: number = 3000;
 //Using Routes
 app.use('/api', routes);
 
+//
+app.get('/', (req, res) => {
+  res.send('Welcome to Image Processing API');
+});
 //Starting Server
 app.listen(port, (): void => {
   console.log(`Listening on port ${port}!`);

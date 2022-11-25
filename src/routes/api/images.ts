@@ -1,34 +1,19 @@
 import express from 'express';
-import sharp from 'sharp';
 import path from 'path';
 import fs from 'fs';
-
+import { resizeImage } from '../../imageProcessing';
 //Router instance
 export const images: express.Router = express.Router();
 
-// Using sharp to resize the image
-export const resizeImage = async (
-  imagePath: string,
-  fileName: string,
-  width: number,
-  height: number
-): Promise<void | null> => {
-  try {
-    await sharp(imagePath)
-      .resize(width, height)
-      .toFormat('jpg')
-      .toFile(
-        path.resolve(
-          __dirname,
-          '../../../assets/images/thumb/' + fileName + '_thumb' + '.jpg'
-        )
-      );
-  } catch (err) {
-    console.log(err + 'hERE');
-  }
-};
 images.get('/', async (req: express.Request, res: express.Response) => {
   const filename: string = req.query['filename'] as string;
+
+  // width and height must be numbers only
+  // if (req.query.height <= 0 || width <= 0) {
+  //   res.status(400).send('Please make sure width and height are biger than 0');
+  //   return;
+  // }
+
   const height = req.query['height']
     ? parseInt(req.query['height'] as string, 10)
     : null;
@@ -43,6 +28,11 @@ images.get('/', async (req: express.Request, res: express.Response) => {
       .send(
         'Please make sure url contains correct filename, height and width params'
       );
+    return;
+  }
+  // width and height must be  biger than 0
+  if (height <= 0 || width <= 0) {
+    res.status(400).send('Please make sure width and height are biger than 0');
     return;
   }
 
@@ -62,11 +52,11 @@ images.get('/', async (req: express.Request, res: express.Response) => {
   if (fs.existsSync(fullImagePath) === true) {
     //Check if image exists in thumb images folder
     if (fs.existsSync(thumbImagePath) === true) {
-      res.sendFile(thumbImagePath);
+      res.status(200).sendFile(thumbImagePath);
       console.log('The Image is already Exists in thumb folder');
     } else {
       resizeImage(fullImagePath, filename, width, height).then(() => {
-        res.sendFile(thumbImagePath);
+        res.status(200).sendFile(thumbImagePath);
       });
     }
   } else {
@@ -74,4 +64,9 @@ images.get('/', async (req: express.Request, res: express.Response) => {
   }
 });
 
-module.exports = { images, resizeImage };
+// module.exports = images;
+
+// images.get('/', (req, res, next) => {
+//   res.send('Hello From /api/image end point');
+//   next();
+// });

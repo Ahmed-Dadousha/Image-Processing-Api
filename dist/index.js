@@ -11,6 +11,10 @@ const app = (0, express_1.default)();
 const port = 3000;
 //Using Routes
 app.use('/api', index_1.default);
+//
+app.get('/', (req, res) => {
+    res.send('Welcome to Image Processing API');
+});
 //Starting Server
 app.listen(port, () => {
     console.log(`Listening on port ${port}!`);
