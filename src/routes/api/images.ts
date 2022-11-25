@@ -9,7 +9,7 @@ images.get('/', async (req: express.Request, res: express.Response) => {
   const filename: string = req.query['filename'] as string;
 
   // width and height must be numbers only
-  // if (req.query.height <= 0 || width <= 0) {
+  // if ((req.query.height as number) <= 0 || req.query.width <= 0) {
   //   res.status(400).send('Please make sure width and height are biger than 0');
   //   return;
   // }
@@ -35,7 +35,18 @@ images.get('/', async (req: express.Request, res: express.Response) => {
     res.status(400).send('Please make sure width and height are biger than 0');
     return;
   }
-
+  // Width and height must contain numbers only
+  // if (Number.isNaN(width) === true || Number.isNaN(height) === true) {
+  //   res
+  //     .status(400)
+  //     .send('Please make sure width and height Contains numbers only');
+  //   return;
+  // }
+  // Filename shuould contain string only not numbers
+  // if (!/d/.test(filename)) {
+  //   res.status(400).send('Please make sure filename Contains letters only');
+  //   return;
+  // }
   //Get image path in full folder
   const fullImagePath = path.resolve(
     __dirname,

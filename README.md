@@ -18,7 +18,9 @@ Got to http://localhost:3000/
 
 ### The endpoint to resize Images
 
-http://localhost:3000/api/images
+http://localhost:3000/api/images?filename=fjord&width=50&height=50
+
+another example
 
 - Write These params in url:filename:'your image name without extenstion' => string; <br>
 - width: "Your image new width" => number; <br>
