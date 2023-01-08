@@ -4,6 +4,13 @@
 
     This is a simple image processing api which you can use to resize images
 
+## Setup
+
+1. Run `npm i` to install all Dependencies
+2. Run `npm run prettier` for style
+3. Run `npm run lint ` also for style
+4. Run `npm run test` For unit testing
+
 ## Usage
 
 - Run `npm run build` To Build the project
@@ -21,15 +28,9 @@
 - The api will resize the image to the new dimensions you have passed
 - You can find the resized image in the thumb folder
 
-## Setup
-
-1. Run `npm i` to install all Dependencies
-2. Run `npm run prettier` for style
-3. Run `npm run lint ` also for style
-4. Run `npm run test` For unit testing
-
 ## Technologies
 
 - Node.js
 - express
-- Javascript
+- typescript
+- jasmine
