@@ -8,7 +8,7 @@
 
 - Run `npm run build` To Build the project
 - Run `npm run start` To start the server
-- Put your image in assets/images/full folder
+- Put your image in `assets/images/full ` folder
 - The image should be in jpg format
 - Got to http://localhost:3000/
 - Write **filename** , **width** and **height** params in the url like the next example
