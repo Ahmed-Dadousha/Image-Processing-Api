@@ -10,7 +10,7 @@ const port: number = 3000;
 app.use('/api', routes);
 
 //
-app.get('/', (req, res) => {
+app.get('/', (_req: express.Request, res: express.Response) => {
   res.send('Welcome to Image Processing API');
 });
 //Starting Server
